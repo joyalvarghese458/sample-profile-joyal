@@ -1,5 +1,6 @@
 import Image from "next/image";
 import HeroShareButton from "./HeroShareButton";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 
 const contact = {
   name: "Joyal Varghese",
@@ -30,38 +31,55 @@ const actions = [
     label: "Whatsapp",
     href: "https://wa.me/971568450406",
     icon: "whatsapp",
-    iconClass: "bg-[#25D366] text-white shadow-[0_12px_24px_rgba(37,211,102,0.28)]",
+    iconClass:
+      "bg-[#25D366] text-white shadow-[0_12px_24px_rgba(37,211,102,0.28)]",
   },
   {
     label: "Call",
     href: "tel:+971568450406",
     icon: "phone",
-    iconClass: "bg-[#12B7D8] text-white shadow-[0_12px_24px_rgba(18,183,216,0.28)]",
+    iconClass:
+      "bg-[#12B7D8] text-white shadow-[0_12px_24px_rgba(18,183,216,0.28)]",
   },
   {
     label: "Mail",
     href: `mailto:${contact.email}`,
     icon: "mail",
-    iconClass: "bg-[#2F80ED] text-white shadow-[0_12px_24px_rgba(47,128,237,0.26)]",
+    iconClass:
+      "bg-[#2F80ED] text-white shadow-[0_12px_24px_rgba(47,128,237,0.26)]",
   },
   {
     label: "Website",
     href: contact.website,
     icon: "globe",
-    iconClass: "bg-[#7C3AED] text-white shadow-[0_12px_24px_rgba(124,58,237,0.24)]",
+    iconClass:
+      "bg-[#7C3AED] text-white shadow-[0_12px_24px_rgba(124,58,237,0.24)]",
   },
   {
     label: "Location",
     href: contact.location,
     icon: "pin",
-    iconClass: "bg-[#EF4444] text-white shadow-[0_12px_24px_rgba(239,68,68,0.25)]",
+    iconClass:
+      "bg-[#EF4444] text-white shadow-[0_12px_24px_rgba(239,68,68,0.25)]",
   },
 ];
 
 const socialLinks = [
-  { label: "Facebook", href: "https://facebook.com", icon: "f" },
-  { label: "Instagram", href: "https://instagram.com", icon: "ig" },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: "in" },
+  {
+    label: "Facebook",
+    href: "https://facebook.com",
+    icon: FaFacebookF,
+  },
+  {
+    label: "Instagram",
+    href: "https://instagram.com",
+    icon: FaInstagram,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://linkedin.com",
+    icon: FaLinkedinIn,
+  },
 ];
 
 function Icon({ name }: { name: string }) {
@@ -111,7 +129,13 @@ function Icon({ name }: { name: string }) {
   if (name === "globe") {
     return (
       <svg {...baseProps}>
-        <circle cx="12" cy="12" r="8.3" stroke="currentColor" strokeWidth="1.7" />
+        <circle
+          cx="12"
+          cy="12"
+          r="8.3"
+          stroke="currentColor"
+          strokeWidth="1.7"
+        />
         <path
           d="M3.8 12h16.4M12 3.7c2.1 2.2 3.1 5 3.1 8.3s-1 6.1-3.1 8.3c-2.1-2.2-3.1-5-3.1-8.3s1-6.1 3.1-8.3Z"
           stroke="currentColor"
@@ -132,7 +156,13 @@ function Icon({ name }: { name: string }) {
           strokeWidth="1.7"
           strokeLinejoin="round"
         />
-        <circle cx="12" cy="10.4" r="2.3" stroke="currentColor" strokeWidth="1.7" />
+        <circle
+          cx="12"
+          cy="10.4"
+          r="2.3"
+          stroke="currentColor"
+          strokeWidth="1.7"
+        />
       </svg>
     );
   }
@@ -198,8 +228,12 @@ export default function Home() {
             <h1 className="mt-2 text-[32px] font-black leading-tight text-white">
               {contact.name}
             </h1>
-            <p className="mt-1 text-lg font-medium text-white/78">{contact.title}</p>
-            <p className="mt-3 text-sm font-extrabold text-white/72">{contact.company}</p>
+            <p className="mt-1 text-lg font-medium text-white/78">
+              {contact.title}
+            </p>
+            <p className="mt-3 text-sm font-extrabold text-white/72">
+              {contact.company}
+            </p>
           </div>
         </section>
 
@@ -219,7 +253,10 @@ export default function Home() {
             Save Contact
           </a>
 
-          <nav aria-label="Contact actions" className="mt-8 grid grid-cols-5 gap-3">
+          <nav
+            aria-label="Contact actions"
+            className="mt-8 grid grid-cols-5 gap-3"
+          >
             {actions.map((action) => (
               <a
                 className="group flex min-w-0 flex-col items-center gap-2 text-[#7a2228]"
@@ -264,22 +301,28 @@ export default function Home() {
               Follow Us
             </h2>
             <div className="mt-5 grid grid-cols-3 gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  className="flex flex-col items-center gap-2 text-[#94181f]"
-                  href={social.href}
-                  key={social.label}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <span className="grid h-13 w-13 place-items-center rounded-2xl bg-[#94181f] text-lg font-black text-white shadow-[0_10px_24px_rgba(148,24,31,0.22)]">
-                    {social.icon}
-                  </span>
-                  <span className="text-[10px] font-semibold text-[#5c5556]">
-                    {social.label}
-                  </span>
-                </a>
-              ))}
+              {socialLinks.map((social) => {
+                const SocialIcon = social.icon;
+
+                return (
+                  <a
+                    className="group flex flex-col items-center gap-2"
+                    href={social.href}
+                    key={social.label}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    aria-label={social.label}
+                  >
+                    <span className="grid h-14 w-14 place-items-center rounded-2xl bg-[#94181f] text-white shadow-[0_10px_24px_rgba(148,24,31,0.22)] transition duration-200 group-hover:-translate-y-1 group-hover:shadow-[0_16px_30px_rgba(148,24,31,0.3)]">
+                      <SocialIcon size={23} aria-hidden="true" />
+                    </span>
+
+                    <span className="text-[10px] font-semibold text-[#5c5556]">
+                      {social.label}
+                    </span>
+                  </a>
+                );
+              })}
             </div>
           </section>
         </section>
