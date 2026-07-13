@@ -319,7 +319,7 @@ function PageMeProfileCard({
   encodedVcard: string;
   profile: Profile;
 }) {
-  const isJessie = profile.slug === "jessie";
+  const isJessie = profile.slug === "joshua";
 
   if (isJessie) {
     return <JessieProfileCard encodedVcard={encodedVcard} profile={profile} />;

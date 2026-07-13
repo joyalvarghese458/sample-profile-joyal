@@ -187,8 +187,8 @@ export const profiles = {
       },
     ],
   },
-  jessie: {
-    slug: "jessie",
+  joshua: {
+    slug: "joshua",
     variant: "pageme",
     name: "Joshua Jose",
     title: "Sales Manager",
@@ -197,7 +197,7 @@ export const profiles = {
     email: "your@sample.io",
     website: "https://myportfoliowebsite.com",
     location: "https://maps.google.com",
-    image: "/joyal.jpeg",
+    image: "/joshua.webp",
     imageAlt: "Portrait of Joshua Jose.",
     badge: "PageMe",
     eyebrow: "I think therefore I am",
@@ -209,7 +209,7 @@ export const profiles = {
     aboutText:
       "A soft personal card for wellness creators with direct contact, social links and profile saving.",
     meetingUrl: "https://myportfoliowebsite.com",
-    vcardFileName: "jessie-pinkman.vcf",
+    vcardFileName: "joshua-jose.vcf",
     vcardAddress: "ADR;TYPE=WORK:;;Mindful Studio;;;;",
     actions: [
       {

@@ -227,30 +227,49 @@ button {
   justify-content: center;
   min-height: 100svh;
   background:
-    radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.78), transparent 26%),
-    radial-gradient(circle at 82% 12%, rgba(64, 176, 226, 0.46), transparent 28%),
-    radial-gradient(circle at 78% 82%, rgba(91, 98, 159, 0.5), transparent 31%),
-    linear-gradient(145deg, #f7dfcf 0%, #c8d4e7 34%, #496d9e 67%, #171d35 100%);
+    radial-gradient(circle at 18% 12%, rgba(125, 211, 252, 0.34), transparent 28%),
+    radial-gradient(circle at 86% 8%, rgba(167, 139, 250, 0.28), transparent 27%),
+    radial-gradient(circle at 82% 88%, rgba(20, 184, 166, 0.22), transparent 29%),
+    linear-gradient(145deg, #eef6ff 0%, #dfe9f5 35%, #cfdced 62%, #b9c7da 100%);
   background-attachment: fixed;
 }
 
 .jessie-profile-card {
   position: relative;
   background:
-    linear-gradient(180deg, #64699d 0%, #5f6597 52%, #586096 100%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 28%),
+    linear-gradient(155deg, #24314f 0%, #2d426a 42%, #1b5b68 100%);
   isolation: isolate;
+}
+
+.jessie-profile-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.2), transparent 30%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 46%);
+  pointer-events: none;
+}
+
+.jessie-profile-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .jessie-hero {
   min-height: clamp(320px, 48svh, 410px);
   background:
-    radial-gradient(circle at 48% 20%, rgba(255, 255, 255, 0.2), transparent 25%),
-    linear-gradient(155deg, rgba(255, 255, 255, 0.15), transparent 30%),
-    linear-gradient(180deg, #747aae 0%, #656ba1 100%);
+    radial-gradient(circle at 50% 17%, rgba(255, 255, 255, 0.2), transparent 24%),
+    linear-gradient(145deg, rgba(45, 212, 191, 0.18), transparent 35%),
+    linear-gradient(180deg, rgba(15, 23, 42, 0.02), rgba(15, 23, 42, 0.14)),
+    linear-gradient(135deg, #31476f 0%, #25395f 46%, #1f6470 100%);
 }
 
 .jessie-content {
-  background: linear-gradient(180deg, rgba(95, 101, 151, 0) 0%, #596198 18%, #525b93 100%);
+  background:
+    linear-gradient(180deg, rgba(31, 100, 112, 0) 0%, rgba(30, 65, 93, 0.9) 14%, #1c334f 100%);
 }
 
 .jessie-ribbon {
@@ -265,8 +284,8 @@ button {
   bottom: 18px;
   width: 300px;
   height: 43px;
-  background: #1688cd;
-  box-shadow: 0 9px 18px rgba(10, 40, 91, 0.22);
+  background: linear-gradient(90deg, #38bdf8, #14b8a6);
+  box-shadow: 0 9px 24px rgba(14, 116, 144, 0.28);
 }
 
 .jessie-ribbon-two {
@@ -274,7 +293,7 @@ button {
   bottom: -42px;
   width: 260px;
   height: 90px;
-  background: #3b3f69;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.72), rgba(30, 64, 175, 0.54));
 }
 
 .jessie-ribbon-three {
@@ -282,7 +301,7 @@ button {
   bottom: -34px;
   width: 320px;
   height: 74px;
-  background: rgba(49, 52, 89, 0.72);
+  background: rgba(15, 23, 42, 0.42);
 }
 
 .jessie-social-link,
