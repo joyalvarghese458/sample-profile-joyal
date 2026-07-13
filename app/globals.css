@@ -237,8 +237,13 @@ button {
 .jessie-profile-card {
   position: relative;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 28%),
-    linear-gradient(155deg, #24314f 0%, #2d426a 42%, #1b5b68 100%);
+    radial-gradient(circle at 50% 17%, rgba(255, 255, 255, 0.15), transparent 18%),
+    radial-gradient(circle at 48% 18%, rgba(45, 212, 191, 0.28), transparent 30%),
+    radial-gradient(circle at 18% 12%, rgba(26, 26, 61, 0.92), transparent 38%),
+    radial-gradient(circle at 86% 18%, rgba(15, 61, 62, 0.78), transparent 34%),
+    radial-gradient(circle at 18% 74%, rgba(15, 61, 62, 0.62), transparent 38%),
+    radial-gradient(circle at 82% 82%, rgba(26, 26, 61, 0.88), transparent 42%),
+    conic-gradient(from 205deg at 54% 44%, #0b1220 0deg, #0f3d3e 96deg, #1a1a3d 188deg, #0b1220 292deg, #0b1220 360deg);
   isolation: isolate;
 }
 
@@ -248,9 +253,25 @@ button {
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.2), transparent 30%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 46%);
+    radial-gradient(circle at 50% 130px, rgba(255, 255, 255, 0.28), rgba(45, 212, 191, 0.16) 24%, rgba(45, 212, 191, 0.06) 38%, transparent 58%),
+    radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.1), transparent 36%);
+  filter: blur(18px);
+  opacity: 0.84;
   pointer-events: none;
+}
+
+.jessie-profile-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  background-image:
+    repeating-radial-gradient(circle at 18% 32%, rgba(255, 255, 255, 0.9) 0 0.6px, transparent 0.8px 2.4px),
+    repeating-radial-gradient(circle at 72% 64%, rgba(11, 18, 32, 0.7) 0 0.5px, transparent 0.7px 2.8px);
+  background-size: 42px 42px, 36px 36px;
+  mix-blend-mode: soft-light;
 }
 
 .jessie-profile-card > * {
@@ -261,19 +282,17 @@ button {
 .jessie-hero {
   min-height: clamp(320px, 48svh, 410px);
   background:
-    radial-gradient(circle at 50% 17%, rgba(255, 255, 255, 0.2), transparent 24%),
-    linear-gradient(145deg, rgba(45, 212, 191, 0.18), transparent 35%),
-    linear-gradient(180deg, rgba(15, 23, 42, 0.02), rgba(15, 23, 42, 0.14)),
-    linear-gradient(135deg, #31476f 0%, #25395f 46%, #1f6470 100%);
+    linear-gradient(180deg, rgba(11, 18, 32, 0.1), rgba(11, 18, 32, 0.22));
 }
 
 .jessie-content {
   background:
-    linear-gradient(180deg, rgba(31, 100, 112, 0) 0%, rgba(30, 65, 93, 0.9) 14%, #1c334f 100%);
+    linear-gradient(180deg, rgba(11, 18, 32, 0) 0%, rgba(11, 18, 32, 0.72) 16%, rgba(11, 18, 32, 0.9) 100%);
 }
 
 .jessie-ribbon {
   position: absolute;
+  display: none;
   pointer-events: none;
   transform: rotate(45deg);
   transform-origin: center;
