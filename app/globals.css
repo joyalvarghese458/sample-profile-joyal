@@ -223,7 +223,7 @@ button {
 
 .jessie-stage {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   min-height: 100svh;
   background:
@@ -234,32 +234,15 @@ button {
   background-attachment: fixed;
 }
 
-.jessie-phone-card {
+.jessie-profile-card {
   position: relative;
-  border: 7px solid #232327;
-  border-radius: 33px;
   background:
     linear-gradient(180deg, #64699d 0%, #5f6597 52%, #586096 100%);
   isolation: isolate;
-  min-height: min(812px, calc(100svh - 32px));
-}
-
-.jessie-phone-card::before {
-  content: "";
-  position: absolute;
-  z-index: 30;
-  top: -7px;
-  left: 50%;
-  width: 132px;
-  height: 19px;
-  transform: translateX(-50%);
-  border-radius: 0 0 13px 13px;
-  background: #202024;
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .jessie-hero {
-  min-height: clamp(350px, 55svh, 440px);
+  min-height: clamp(320px, 48svh, 410px);
   background:
     radial-gradient(circle at 48% 20%, rgba(255, 255, 255, 0.2), transparent 25%),
     linear-gradient(155deg, rgba(255, 255, 255, 0.15), transparent 30%),
@@ -309,24 +292,16 @@ button {
 
 @media (max-width: 360px) {
   .jessie-stage {
-    padding: 10px;
+    padding: 0;
   }
 
-  .jessie-phone-card {
-    border-width: 6px;
-    border-radius: 28px;
-    min-height: calc(100svh - 20px);
-  }
-
-  .jessie-phone-card::before {
-    top: -6px;
-    width: 116px;
-    height: 17px;
+  .jessie-profile-card {
+    min-height: 100svh;
   }
 
   .jessie-hero {
-    min-height: 332px;
-    padding-top: 50px;
+    min-height: 306px;
+    padding-top: 42px;
     padding-bottom: 22px;
   }
 
@@ -367,7 +342,11 @@ button {
 }
 
 @media (min-width: 640px) {
-  .jessie-phone-card {
-    min-height: 760px;
+  .jessie-stage {
+    align-items: center;
+  }
+
+  .jessie-profile-card {
+    min-height: 720px;
   }
 }

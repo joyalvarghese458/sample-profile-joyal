@@ -566,9 +566,9 @@ function JessieProfileCard({
   ];
 
   return (
-    <main className="jessie-stage min-h-screen px-3 py-4 text-white sm:px-4 sm:py-7">
-      <article className="jessie-phone-card mx-auto w-full max-w-[390px] overflow-hidden shadow-[0_28px_70px_rgba(7,16,31,0.34)]">
-        <section className="jessie-hero relative overflow-hidden px-5 pb-7 pt-16 text-center sm:px-6">
+    <main className="jessie-stage min-h-screen px-0 py-0 text-white sm:px-5 sm:py-8">
+      <article className="jessie-profile-card mx-auto min-h-screen w-full overflow-hidden shadow-[0_24px_70px_rgba(21,28,68,0.2)] sm:min-h-0 sm:max-w-[430px] sm:rounded-[28px]">
+        <section className="jessie-hero relative overflow-hidden px-5 pb-7 pt-14 text-center sm:px-6 sm:pt-16">
           <div className="jessie-ribbon jessie-ribbon-one" />
           <div className="jessie-ribbon jessie-ribbon-two" />
           <div className="jessie-ribbon jessie-ribbon-three" />
