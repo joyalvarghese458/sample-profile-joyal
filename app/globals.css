@@ -220,3 +220,154 @@ button {
   opacity: 0.2;
   background-image: repeating-radial-gradient(circle at 40% 50%, #1a2c36 0 1px, transparent 1px 4px);
 }
+
+.jessie-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 255, 255, 0.78), transparent 26%),
+    radial-gradient(circle at 82% 12%, rgba(64, 176, 226, 0.46), transparent 28%),
+    radial-gradient(circle at 78% 82%, rgba(91, 98, 159, 0.5), transparent 31%),
+    linear-gradient(145deg, #f7dfcf 0%, #c8d4e7 34%, #496d9e 67%, #171d35 100%);
+  background-attachment: fixed;
+}
+
+.jessie-phone-card {
+  position: relative;
+  border: 7px solid #232327;
+  border-radius: 33px;
+  background:
+    linear-gradient(180deg, #64699d 0%, #5f6597 52%, #586096 100%);
+  isolation: isolate;
+  min-height: min(812px, calc(100svh - 32px));
+}
+
+.jessie-phone-card::before {
+  content: "";
+  position: absolute;
+  z-index: 30;
+  top: -7px;
+  left: 50%;
+  width: 132px;
+  height: 19px;
+  transform: translateX(-50%);
+  border-radius: 0 0 13px 13px;
+  background: #202024;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.jessie-hero {
+  min-height: clamp(350px, 55svh, 440px);
+  background:
+    radial-gradient(circle at 48% 20%, rgba(255, 255, 255, 0.2), transparent 25%),
+    linear-gradient(155deg, rgba(255, 255, 255, 0.15), transparent 30%),
+    linear-gradient(180deg, #747aae 0%, #656ba1 100%);
+}
+
+.jessie-content {
+  background: linear-gradient(180deg, rgba(95, 101, 151, 0) 0%, #596198 18%, #525b93 100%);
+}
+
+.jessie-ribbon {
+  position: absolute;
+  pointer-events: none;
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+
+.jessie-ribbon-one {
+  left: -92px;
+  bottom: 18px;
+  width: 300px;
+  height: 43px;
+  background: #1688cd;
+  box-shadow: 0 9px 18px rgba(10, 40, 91, 0.22);
+}
+
+.jessie-ribbon-two {
+  left: 12px;
+  bottom: -42px;
+  width: 260px;
+  height: 90px;
+  background: #3b3f69;
+}
+
+.jessie-ribbon-three {
+  right: -122px;
+  bottom: -34px;
+  width: 320px;
+  height: 74px;
+  background: rgba(49, 52, 89, 0.72);
+}
+
+.jessie-social-link,
+.jessie-payment-link {
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 360px) {
+  .jessie-stage {
+    padding: 10px;
+  }
+
+  .jessie-phone-card {
+    border-width: 6px;
+    border-radius: 28px;
+    min-height: calc(100svh - 20px);
+  }
+
+  .jessie-phone-card::before {
+    top: -6px;
+    width: 116px;
+    height: 17px;
+  }
+
+  .jessie-hero {
+    min-height: 332px;
+    padding-top: 50px;
+    padding-bottom: 22px;
+  }
+
+  .jessie-ribbon-one {
+    left: -110px;
+    bottom: 10px;
+  }
+
+  .jessie-ribbon-two {
+    left: -4px;
+    bottom: -54px;
+  }
+
+  .jessie-content {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 20px;
+  }
+
+  .jessie-social-link {
+    min-height: 56px;
+    grid-template-columns: 42px minmax(0, 1fr) 14px;
+    gap: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .jessie-payment-grid {
+    gap: 9px;
+  }
+
+  .jessie-payment-link {
+    min-height: 50px;
+    gap: 8px;
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+}
+
+@media (min-width: 640px) {
+  .jessie-phone-card {
+    min-height: 760px;
+  }
+}

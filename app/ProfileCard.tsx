@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SiGooglepay, SiPaypal, SiPaytm, SiPhonepe } from "react-icons/si";
 import HeroShareButton from "./HeroShareButton";
 import type { Profile } from "./profiles";
 
@@ -78,6 +79,44 @@ function Icon({ name }: { name: string }) {
           strokeWidth="1.7"
           strokeLinecap="round"
           strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+
+  if (name === "message") {
+    return (
+      <svg {...baseProps}>
+        <path
+          d="M5.1 6.4h13.8c.9 0 1.6.7 1.6 1.6v7.1c0 .9-.7 1.6-1.6 1.6h-6.2l-3.8 2.9v-2.9H5.1c-.9 0-1.6-.7-1.6-1.6V8c0-.9.7-1.6 1.6-1.6Z"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.7"
+        />
+        <path
+          d="M8 10.4h8M8 13h5.4"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeWidth="1.7"
+        />
+      </svg>
+    );
+  }
+
+  if (name === "whatsapp") {
+    return (
+      <svg {...baseProps}>
+        <path
+          d="M4.2 20.1 5.4 16a8 8 0 1 1 3.1 3l-4.3 1.1Z"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.7"
+        />
+        <path
+          d="M9.3 8.5c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2.1.4 0 .6l-.5.6c.5.9 1.2 1.6 2.2 2.1l.6-.6c.2-.2.4-.2.7-.1l1.6.8c.3.1.4.3.4.6v.5c0 .3-.1.5-.4.7-.5.3-1 .5-1.6.4-2.9-.5-5.4-2.8-6-5.7-.1-.5.1-1.1.4-1.5Z"
+          fill="currentColor"
         />
       </svg>
     );
@@ -282,6 +321,10 @@ function PageMeProfileCard({
 }) {
   const isJessie = profile.slug === "jessie";
 
+  if (isJessie) {
+    return <JessieProfileCard encodedVcard={encodedVcard} profile={profile} />;
+  }
+
   return (
     <main className="page-me-stage min-h-screen px-0 py-0 text-white sm:px-4 sm:py-6">
       <article
@@ -458,6 +501,201 @@ function PageMeProfileCard({
               Directions
             </a>
           </div>
+        </section>
+      </article>
+    </main>
+  );
+}
+
+function JessieProfileCard({
+  encodedVcard,
+  profile,
+}: {
+  encodedVcard: string;
+  profile: Profile;
+}) {
+  const phoneDigits = profile.phone.replace(/[^\d]/g, "");
+  const dialablePhone = profile.phone.replace(/[^\d+]/g, "");
+  const quickActions = [
+    {
+      label: "Call",
+      href: `tel:${dialablePhone}`,
+      icon: "phone",
+    },
+    {
+      label: "Email",
+      href: `mailto:${profile.email}`,
+      icon: "mail",
+    },
+    {
+      label: "Message",
+      href: `sms:${dialablePhone}`,
+      icon: "message",
+    },
+    {
+      label: "WhatsApp",
+      href: `https://wa.me/${phoneDigits}`,
+      icon: "whatsapp",
+    },
+  ];
+  const paymentOptions = [
+    {
+      label: "GPay",
+      href: "upi://pay?pa=your@upi&pn=Joshua%20B",
+      icon: SiGooglepay,
+      tone: "bg-[#eef5ff] text-[#1a73e8]",
+    },
+    {
+      label: "PhonePe",
+      href: "upi://pay?pa=your@upi&pn=Joshua%20B",
+      icon: SiPhonepe,
+      tone: "bg-[#f3edff] text-[#5f259f]",
+    },
+    {
+      label: "Paytm",
+      href: "upi://pay?pa=your@upi&pn=Joshua%20B",
+      icon: SiPaytm,
+      tone: "bg-[#eaf8ff] text-[#00baf2]",
+    },
+    {
+      label: "PayPal",
+      href: "https://paypal.me",
+      icon: SiPaypal,
+      tone: "bg-[#edf4ff] text-[#003087]",
+    },
+  ];
+
+  return (
+    <main className="jessie-stage min-h-screen px-3 py-4 text-white sm:px-4 sm:py-7">
+      <article className="jessie-phone-card mx-auto w-full max-w-[390px] overflow-hidden shadow-[0_28px_70px_rgba(7,16,31,0.34)]">
+        <section className="jessie-hero relative overflow-hidden px-5 pb-7 pt-16 text-center sm:px-6">
+          <div className="jessie-ribbon jessie-ribbon-one" />
+          <div className="jessie-ribbon jessie-ribbon-two" />
+          <div className="jessie-ribbon jessie-ribbon-three" />
+
+          <div className="relative z-10 mx-auto h-32 w-32 overflow-hidden rounded-full bg-white shadow-[0_10px_28px_rgba(33,36,72,0.28)]">
+            <Image
+              src={profile.image}
+              alt={profile.imageAlt}
+              fill
+              priority
+              sizes="128px"
+              className="object-cover object-top"
+            />
+          </div>
+
+          <h1 className="relative z-10 mt-4 text-[27px] font-extrabold leading-tight text-white">
+            {profile.name}
+          </h1>
+          <p className="relative z-10 mt-1 text-[12px] font-medium text-white/82">
+            {profile.title}
+          </p>
+
+          <nav
+            aria-label="Contact actions"
+            className="relative z-10 mx-auto mt-5 grid max-w-[240px] grid-cols-4 gap-3"
+          >
+            {quickActions.map((action) => (
+              <a
+                aria-label={action.label}
+                className="grid h-12 w-12 place-items-center justify-self-center rounded-full bg-white text-[#25a9ef] shadow-[0_10px_20px_rgba(22,33,74,0.2)] transition hover:-translate-y-0.5"
+                href={action.href}
+                key={action.label}
+                rel={action.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                target={action.href.startsWith("http") ? "_blank" : undefined}
+              >
+                <Icon name={action.icon} />
+              </a>
+            ))}
+          </nav>
+        </section>
+
+        <section className="jessie-content relative z-10 -mt-1 px-4 pb-7">
+          <a
+            className="sr-only"
+            download={profile.vcardFileName}
+            href={encodedVcard}
+          >
+            Save Contact
+          </a>
+
+          <nav aria-label="Social links" className="space-y-3">
+            {profile.socialLinks.map((social) => {
+              const SocialIcon = social.icon;
+              const isInstagram = social.label === "Instagram";
+              const isX = social.label === "Twitter" || social.label === "X";
+
+              return (
+                <a
+                  className="jessie-social-link grid min-h-[62px] grid-cols-[48px_1fr_18px] items-center gap-3 rounded-[9px] bg-white px-3 text-left text-[#1f2937] shadow-[0_8px_18px_rgba(18,28,66,0.16)] transition hover:-translate-y-0.5"
+                  href={social.href}
+                  key={social.label}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <span
+                    className={`grid h-10 w-10 place-items-center rounded-full text-white ${
+                      isInstagram
+                        ? "bg-[radial-gradient(circle_at_30%_105%,#fdf497_0_18%,#fd5949_42%,#d6249f_66%,#285AEB_100%)]"
+                        : isX
+                          ? "bg-black"
+                          : "bg-[#1877f2]"
+                    }`}
+                  >
+                    <SocialIcon size={24} aria-hidden="true" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block truncate text-[14px] font-bold leading-5">
+                      {social.label}
+                    </span>
+                    <span className="block truncate text-[10px] font-medium text-[#6b7280]">
+                      Follow us on {social.label}
+                    </span>
+                  </span>
+                  <span className="text-[30px] font-light leading-none text-[#33aef2]">
+                    &rsaquo;
+                  </span>
+                </a>
+              );
+            })}
+          </nav>
+
+          <section aria-labelledby="payment-title" className="mt-5">
+            <h2
+              id="payment-title"
+              className="mb-3 text-center text-[12px] font-bold uppercase tracking-[0.16em] text-white/78"
+            >
+              Payment Options
+            </h2>
+            <div className="jessie-payment-grid grid grid-cols-2 gap-3">
+              {paymentOptions.map((payment) => {
+                const PaymentIcon = payment.icon;
+
+                return (
+                  <a
+                    className="jessie-payment-link flex min-h-[54px] items-center gap-3 rounded-[9px] bg-white px-3 text-[#1f2937] shadow-[0_8px_18px_rgba(18,28,66,0.14)] transition hover:-translate-y-0.5"
+                    href={payment.href}
+                    key={payment.label}
+                    rel={
+                      payment.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    target={payment.href.startsWith("http") ? "_blank" : undefined}
+                  >
+                    <span
+                      className={`grid h-9 w-9 shrink-0 place-items-center rounded-full ${payment.tone}`}
+                    >
+                      <PaymentIcon size={21} aria-hidden="true" />
+                    </span>
+                    <span className="truncate text-[13px] font-bold">
+                      {payment.label}
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          </section>
         </section>
       </article>
     </main>
