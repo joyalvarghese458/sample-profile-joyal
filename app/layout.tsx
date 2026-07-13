@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Joyal Varghese | Future Immigration Services",
-  description: "Digital profile card for Joyal Varghese, Immigration Consultant.",
+  title: "Digital Profile Card",
+  description: "Digital profile card directory.",
 };
 
 export default function RootLayout({
