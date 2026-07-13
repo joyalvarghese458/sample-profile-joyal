@@ -291,16 +291,16 @@ function PageMeProfileCard({
         style={{ transform: "none" }}
       >
         <section
-          className={`page-me-cover relative h-[156px] sm:h-[230px] ${
+          className={`page-me-cover relative h-[176px] sm:h-[230px] ${
             isJessie ? "page-me-cover-mountain" : "page-me-cover-concert"
           }`}
         >
           <div className="absolute inset-0 bg-black/10" />
         </section>
 
-        <section className="relative px-5 pb-5 pt-11 text-center sm:px-8 sm:pb-8 sm:pt-14">
+        <section className="relative px-5 pb-6 pt-12 text-center sm:px-8 sm:pb-8 sm:pt-14">
           <div
-            className={`absolute left-1/2 top-0 h-20 w-20 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-[5px] sm:h-28 sm:w-28 sm:border-[7px] ${
+            className={`absolute left-1/2 top-0 h-24 w-24 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-[6px] sm:h-28 sm:w-28 sm:border-[7px] ${
               isJessie
                 ? "border-[#f4efed] bg-[#f2d8ca]"
                 : "border-[#067f7b] bg-[#f3c874]"
@@ -316,18 +316,18 @@ function PageMeProfileCard({
             />
           </div>
 
-          <h1 className="text-[28px] font-normal italic leading-tight sm:text-[34px]">
+          <h1 className="text-[31px] font-normal italic leading-tight sm:text-[34px]">
             {profile.name}
           </h1>
           <p
-            className={`mx-auto mt-2 max-w-[320px] text-[15px] italic leading-6 sm:mt-3 sm:text-[18px] sm:leading-7 ${
+            className={`mx-auto mt-3 max-w-[320px] text-[16px] italic leading-6 sm:text-[18px] sm:leading-7 ${
               isJessie ? "text-[#5f595a]" : "text-white/88"
             }`}
           >
             {profile.summary}
           </p>
           <p
-            className={`mt-3 text-[15px] italic sm:mt-6 sm:text-[18px] ${
+            className={`mt-4 text-[16px] italic sm:mt-6 sm:text-[18px] ${
               isJessie ? "text-[#5f595a]" : "text-white/90"
             }`}
           >
@@ -335,7 +335,7 @@ function PageMeProfileCard({
           </p>
 
           <div
-            className={`my-4 h-px sm:my-9 ${
+            className={`my-5 h-px sm:my-9 ${
               isJessie ? "bg-[#bdb6b4]" : "bg-white/36"
             }`}
           />
@@ -348,13 +348,13 @@ function PageMeProfileCard({
             >
               Recent update {profile.recentDate}
             </p>
-            <p className="mx-auto mt-1 max-w-[320px] text-[15px] leading-6 sm:text-[18px] sm:leading-7">
+            <p className="mx-auto mt-1 max-w-[320px] text-[16px] leading-6 sm:text-[18px] sm:leading-7">
               {profile.recentUpdate}
             </p>
           </div>
 
           <div
-            className={`my-4 h-px sm:my-9 ${
+            className={`my-5 h-px sm:my-9 ${
               isJessie ? "bg-[#bdb6b4]" : "bg-white/36"
             }`}
           />
@@ -371,7 +371,7 @@ function PageMeProfileCard({
               return (
                 <a
                   aria-label={social.label}
-                  className={`grid h-12 w-12 place-items-center justify-self-center rounded-full border transition hover:-translate-y-1 sm:h-16 sm:w-16 ${
+                  className={`grid h-14 w-14 place-items-center justify-self-center rounded-full border transition hover:-translate-y-1 sm:h-16 sm:w-16 ${
                     isJessie
                       ? "border-[#9e9797] text-[#4b4748] hover:bg-white/70"
                       : "border-white/42 text-white hover:bg-white/10"
@@ -388,20 +388,20 @@ function PageMeProfileCard({
           </nav>
 
           <div
-            className={`my-4 h-px sm:my-8 ${
+            className={`my-5 h-px sm:my-8 ${
               isJessie ? "bg-[#bdb6b4]" : "bg-white/36"
             }`}
           />
 
-          <div className="mx-auto max-w-[320px] space-y-4 text-left sm:space-y-7">
+          <div className="mx-auto max-w-[320px] space-y-5 text-left sm:space-y-7">
             <a
               className="grid grid-cols-[42px_1fr] items-center gap-4 sm:grid-cols-[48px_1fr] sm:gap-6"
               href={`tel:${profile.phone.replace(/[^\d+]/g, "")}`}
             >
-              <span className="grid h-10 w-10 place-items-center sm:h-12 sm:w-12">
+              <span className="grid h-11 w-11 place-items-center sm:h-12 sm:w-12">
                 <Icon name="phone" />
               </span>
-              <span className="text-[15px] italic sm:text-[18px]">
+              <span className="text-[16px] italic sm:text-[18px]">
                 {profile.phone}
               </span>
             </a>
@@ -409,7 +409,7 @@ function PageMeProfileCard({
               className="grid grid-cols-[42px_1fr] items-center gap-4 sm:grid-cols-[48px_1fr] sm:gap-6"
               href={`mailto:${profile.email}`}
             >
-              <span className="grid h-10 w-10 place-items-center sm:h-12 sm:w-12">
+              <span className="grid h-11 w-11 place-items-center sm:h-12 sm:w-12">
                 <Icon name="mail" />
               </span>
               <span>
@@ -420,7 +420,7 @@ function PageMeProfileCard({
                 >
                   Work
                 </span>
-                <span className="block text-[15px] italic leading-5 sm:text-[18px]">
+                <span className="block text-[16px] italic leading-5 sm:text-[18px]">
                   {profile.email}
                 </span>
               </span>
@@ -428,14 +428,14 @@ function PageMeProfileCard({
           </div>
 
           <div
-            className={`my-4 h-px sm:my-8 ${
+            className={`my-5 h-px sm:my-8 ${
               isJessie ? "bg-[#bdb6b4]" : "bg-white/36"
             }`}
           />
 
           <div className="mx-auto grid max-w-[340px] grid-cols-2 gap-3">
             <a
-              className={`flex h-11 min-w-0 items-center justify-center rounded-full px-3 text-center text-[13px] italic sm:h-14 sm:px-5 sm:text-[15px] ${
+              className={`flex h-12 min-w-0 items-center justify-center rounded-full px-3 text-center text-[14px] italic sm:h-14 sm:px-5 sm:text-[15px] ${
                 isJessie
                   ? "bg-[#3f3d3d] text-white"
                   : "bg-[#101010] text-white"
@@ -446,7 +446,7 @@ function PageMeProfileCard({
               Save to phone
             </a>
             <a
-              className={`flex h-11 min-w-0 items-center justify-center rounded-full px-3 text-center text-[13px] italic sm:h-14 sm:px-5 sm:text-[15px] ${
+              className={`flex h-12 min-w-0 items-center justify-center rounded-full px-3 text-center text-[14px] italic sm:h-14 sm:px-5 sm:text-[15px] ${
                 isJessie
                   ? "bg-white text-[#5a5555]"
                   : "bg-white text-[#454545]"
