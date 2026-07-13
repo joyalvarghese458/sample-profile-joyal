@@ -125,6 +125,10 @@ function Icon({ name }: { name: string }) {
 export default function ProfileCard({ profile }: { profile: Profile }) {
   const encodedVcard = getEncodedVcard(profile);
 
+  if (profile.variant === "pageme") {
+    return <PageMeProfileCard encodedVcard={encodedVcard} profile={profile} />;
+  }
+
   return (
     <main className="min-h-screen bg-[#f4f0ec] px-3 py-4 text-[#181516]">
       <article className="mx-auto min-h-[calc(100vh-2rem)] w-full max-w-[430px] overflow-hidden rounded-[30px] bg-white shadow-[0_24px_80px_rgba(44,31,27,0.18)]">
@@ -263,6 +267,197 @@ export default function ProfileCard({ profile }: { profile: Profile }) {
               })}
             </div>
           </section>
+        </section>
+      </article>
+    </main>
+  );
+}
+
+function PageMeProfileCard({
+  encodedVcard,
+  profile,
+}: {
+  encodedVcard: string;
+  profile: Profile;
+}) {
+  const isJessie = profile.slug === "jessie";
+
+  return (
+    <main className="page-me-stage min-h-screen px-0 py-0 text-white sm:px-4 sm:py-6">
+      <article
+        className={`mx-auto min-h-screen w-full max-w-[430px] transform-none overflow-hidden rounded-none shadow-[0_34px_90px_rgba(4,15,24,0.34)] sm:min-h-[760px] sm:rounded-[34px] ${
+          isJessie ? "page-me-card-light text-[#4b4748]" : "page-me-card-dark"
+        }`}
+        style={{ transform: "none" }}
+      >
+        <section
+          className={`page-me-cover relative h-[210px] sm:h-[230px] ${
+            isJessie ? "page-me-cover-mountain" : "page-me-cover-concert"
+          }`}
+        >
+          <div className="absolute inset-0 bg-black/10" />
+        </section>
+
+        <section className="relative px-6 pb-7 pt-14 text-center sm:px-8 sm:pb-8">
+          <div
+            className={`absolute left-1/2 top-0 h-24 w-24 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-[6px] sm:h-28 sm:w-28 sm:border-[7px] ${
+              isJessie
+                ? "border-[#f4efed] bg-[#f2d8ca]"
+                : "border-[#067f7b] bg-[#f3c874]"
+            } shadow-[0_16px_34px_rgba(0,0,0,0.2)]`}
+          >
+            <Image
+              src={profile.image}
+              alt={profile.imageAlt}
+              fill
+              priority
+              sizes="112px"
+              className="object-cover object-top"
+            />
+          </div>
+
+          <h1 className="text-[31px] font-normal italic leading-tight sm:text-[34px]">
+            {profile.name}
+          </h1>
+          <p
+            className={`mx-auto mt-3 max-w-[320px] text-[17px] italic leading-7 sm:text-[18px] ${
+              isJessie ? "text-[#5f595a]" : "text-white/88"
+            }`}
+          >
+            {profile.summary}
+          </p>
+          <p
+            className={`mt-5 text-[17px] italic sm:mt-6 sm:text-[18px] ${
+              isJessie ? "text-[#5f595a]" : "text-white/90"
+            }`}
+          >
+            Passion : {profile.passion}
+          </p>
+
+          <div
+            className={`my-7 h-px sm:my-9 ${
+              isJessie ? "bg-[#bdb6b4]" : "bg-white/36"
+            }`}
+          />
+
+          <div className="italic">
+            <p
+              className={`text-xs ${
+                isJessie ? "text-[#6f6969]" : "text-white/68"
+              }`}
+            >
+              Recent update {profile.recentDate}
+            </p>
+            <p className="mx-auto mt-1 max-w-[320px] text-[17px] leading-7 sm:text-[18px]">
+              {profile.recentUpdate}
+            </p>
+          </div>
+
+          <div
+            className={`my-7 h-px sm:my-9 ${
+              isJessie ? "bg-[#bdb6b4]" : "bg-white/36"
+            }`}
+          />
+
+          <nav
+            aria-label="Social links"
+            className={`mx-auto grid max-w-[300px] gap-3 sm:max-w-[320px] sm:gap-5 ${
+              profile.socialLinks.length === 3 ? "grid-cols-3" : "grid-cols-4"
+            }`}
+          >
+            {profile.socialLinks.map((social) => {
+              const SocialIcon = social.icon;
+
+              return (
+                <a
+                  aria-label={social.label}
+                  className={`grid h-14 w-14 place-items-center justify-self-center rounded-full border transition hover:-translate-y-1 sm:h-16 sm:w-16 ${
+                    isJessie
+                      ? "border-[#9e9797] text-[#4b4748] hover:bg-white/70"
+                      : "border-white/42 text-white hover:bg-white/10"
+                  }`}
+                  href={social.href}
+                  key={social.label}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <SocialIcon size={27} aria-hidden="true" />
+                </a>
+              );
+            })}
+          </nav>
+
+          <div
+            className={`my-7 h-px sm:my-8 ${
+              isJessie ? "bg-[#bdb6b4]" : "bg-white/36"
+            }`}
+          />
+
+          <div className="mx-auto max-w-[320px] space-y-6 text-left sm:space-y-7">
+            <a
+              className="grid grid-cols-[42px_1fr] items-center gap-4 sm:grid-cols-[48px_1fr] sm:gap-6"
+              href={`tel:${profile.phone.replace(/[^\d+]/g, "")}`}
+            >
+              <span className="grid h-11 w-11 place-items-center sm:h-12 sm:w-12">
+                <Icon name="phone" />
+              </span>
+              <span className="text-[17px] italic sm:text-[18px]">
+                {profile.phone}
+              </span>
+            </a>
+            <a
+              className="grid grid-cols-[42px_1fr] items-center gap-4 sm:grid-cols-[48px_1fr] sm:gap-6"
+              href={`mailto:${profile.email}`}
+            >
+              <span className="grid h-11 w-11 place-items-center sm:h-12 sm:w-12">
+                <Icon name="mail" />
+              </span>
+              <span>
+                <span
+                  className={`block text-xs italic ${
+                    isJessie ? "text-[#6f6969]" : "text-white/68"
+                  }`}
+                >
+                  Work
+                </span>
+                <span className="block text-[17px] italic leading-5 sm:text-[18px]">
+                  {profile.email}
+                </span>
+              </span>
+            </a>
+          </div>
+
+          <div
+            className={`my-7 h-px sm:my-8 ${
+              isJessie ? "bg-[#bdb6b4]" : "bg-white/36"
+            }`}
+          />
+
+          <div className="mx-auto grid max-w-[340px] grid-cols-2 gap-3">
+            <a
+              className={`flex h-12 min-w-0 items-center justify-center rounded-full px-3 text-center text-[14px] italic sm:h-14 sm:px-5 sm:text-[15px] ${
+                isJessie
+                  ? "bg-[#3f3d3d] text-white"
+                  : "bg-[#101010] text-white"
+              }`}
+              download={profile.vcardFileName}
+              href={encodedVcard}
+            >
+              Save to phone
+            </a>
+            <a
+              className={`flex h-12 min-w-0 items-center justify-center rounded-full px-3 text-center text-[14px] italic sm:h-14 sm:px-5 sm:text-[15px] ${
+                isJessie
+                  ? "bg-white text-[#5a5555]"
+                  : "bg-white text-[#454545]"
+              }`}
+              href={profile.location}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Directions
+            </a>
+          </div>
         </section>
       </article>
     </main>

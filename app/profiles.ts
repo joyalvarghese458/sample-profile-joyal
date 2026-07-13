@@ -1,4 +1,11 @@
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaPinterestP,
+  FaWhatsapp,
+  FaXTwitter,
+} from "react-icons/fa6";
 import type { IconType } from "react-icons";
 
 export type ProfileAction = {
@@ -16,6 +23,7 @@ export type ProfileSocialLink = {
 
 export type Profile = {
   slug: string;
+  variant?: "classic" | "pageme";
   name: string;
   title: string;
   company: string;
@@ -28,6 +36,9 @@ export type Profile = {
   badge: string;
   eyebrow: string;
   summary: string;
+  passion?: string;
+  recentDate?: string;
+  recentUpdate?: string;
   aboutTitle: string;
   aboutText: string;
   meetingUrl: string;
@@ -112,6 +123,123 @@ export const profiles = {
         label: "LinkedIn",
         href: "https://linkedin.com",
         icon: FaLinkedinIn,
+      },
+    ],
+  },
+  walt: {
+    slug: "walt",
+    variant: "pageme",
+    name: "Walt Wyatt",
+    title: "Founder",
+    company: "Volar Skateboard Park",
+    phone: "+1 288-456-8888",
+    email: "walt@me.com",
+    website: "https://pageme.io",
+    location: "https://www.google.com/maps/search/?api=1&query=Volar%20Skateboard%20Park",
+    image: "/dj-man.webp",
+    imageAlt: "Portrait of Walt Wyatt as a DJ",
+    badge: "PageMe",
+    eyebrow: "I think therefore I am",
+    summary: "Founder of Volar Skateboard Park",
+    passion: "DJ, Skateboarding",
+    recentDate: "Aug 16, 2022",
+    recentUpdate: "New Volar Skateboard Deck is out now!",
+    aboutTitle: "Volar Skateboard Park",
+    aboutText:
+      "A clean social profile card for creators, founders and community builders with fast contact actions.",
+    meetingUrl: "https://pageme.io",
+    vcardFileName: "walt-wyatt.vcf",
+    vcardAddress: "ADR;TYPE=WORK:;;Volar Skateboard Park;;;;",
+    actions: [
+      {
+        label: "Call",
+        href: "tel:+12884568888",
+        icon: "phone",
+        iconClass: "bg-white/10 text-white",
+      },
+      {
+        label: "Mail",
+        href: "mailto:walt@me.com",
+        icon: "mail",
+        iconClass: "bg-white/10 text-white",
+      },
+    ],
+    socialLinks: [
+      {
+        label: "Facebook",
+        href: "https://facebook.com",
+        icon: FaFacebookF,
+      },
+      {
+        label: "Instagram",
+        href: "https://instagram.com",
+        icon: FaInstagram,
+      },
+      {
+        label: "X",
+        href: "https://x.com",
+        icon: FaXTwitter,
+      },
+      {
+        label: "WhatsApp",
+        href: "https://wa.me/12884568888",
+        icon: FaWhatsapp,
+      },
+    ],
+  },
+  jessie: {
+    slug: "jessie",
+    variant: "pageme",
+    name: "Jessie Pinkman",
+    title: "Yoga Mentor",
+    company: "Mindful Studio",
+    phone: "+1 288-567-8888",
+    email: "your@pageme.io",
+    website: "https://pageme.io",
+    location: "https://maps.google.com",
+    image: "/joyal.jpeg",
+    imageAlt: "Portrait of Jessie Pinkman",
+    badge: "PageMe",
+    eyebrow: "I think therefore I am",
+    summary: "Yoga mentor and meditation guide",
+    passion: "Yoga, Meditation",
+    recentDate: "Jul 21, 2022",
+    recentUpdate: "Had a great lunch with Vasya",
+    aboutTitle: "Mindful Studio",
+    aboutText:
+      "A soft personal card for wellness creators with direct contact, social links and profile saving.",
+    meetingUrl: "https://pageme.io",
+    vcardFileName: "jessie-pinkman.vcf",
+    vcardAddress: "ADR;TYPE=WORK:;;Mindful Studio;;;;",
+    actions: [
+      {
+        label: "Call",
+        href: "tel:+12885678888",
+        icon: "phone",
+        iconClass: "bg-white/10 text-white",
+      },
+      {
+        label: "Mail",
+        href: "mailto:your@pageme.io",
+        icon: "mail",
+        iconClass: "bg-white/10 text-white",
+      },
+    ],
+    socialLinks: [
+      {
+        label: "Instagram",
+        href: "https://instagram.com",
+        icon: FaInstagram,
+      },
+      {
+        label: "X",
+        href: "https://x.com",
+        icon: FaXTwitter,
+      },
+      {
+        label: "Pinterest",
+        href: "https://pinterest.com",
+        icon: FaPinterestP,
       },
     ],
   },

@@ -158,3 +158,65 @@ button {
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: inherit;
 }
+
+.page-me-stage {
+  background:
+    radial-gradient(circle at 15% 88%, rgba(122, 179, 239, 0.58), transparent 31%),
+    radial-gradient(circle at 87% 15%, rgba(205, 197, 255, 0.62), transparent 32%),
+    radial-gradient(circle at 88% 92%, rgba(223, 251, 237, 0.76), transparent 29%),
+    linear-gradient(145deg, #fbfbfb 0%, #f3f2f5 48%, #edf6ff 100%);
+}
+
+.page-me-card-dark {
+  background:
+    radial-gradient(circle at 35% 10%, rgba(0, 186, 179, 0.34), transparent 30%),
+    linear-gradient(150deg, #07857f 0%, #00646b 42%, #001024 100%);
+}
+
+.page-me-card-light {
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.72), rgba(245, 231, 226, 0.86)),
+    #f5eeee;
+}
+
+.page-me-cover {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.page-me-cover::before,
+.page-me-cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.page-me-cover-concert {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.26)),
+    url("/dj.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.page-me-cover-concert::before {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.28), transparent 48%);
+}
+
+.page-me-cover-concert::after {
+  opacity: 0;
+}
+
+.page-me-cover-mountain {
+  background:
+    linear-gradient(170deg, transparent 0 45%, rgba(15, 36, 48, 0.92) 46% 100%),
+    linear-gradient(162deg, transparent 0 36%, #dbe7ec 37% 48%, #294253 49% 100%),
+    linear-gradient(18deg, transparent 0 39%, #edf5f6 40% 50%, #213d4d 51% 100%),
+    linear-gradient(180deg, #bfe7ef 0%, #f7c6b5 48%, #293846 49%, #17262c 100%);
+}
+
+.page-me-cover-mountain::before {
+  opacity: 0.2;
+  background-image: repeating-radial-gradient(circle at 40% 50%, #1a2c36 0 1px, transparent 1px 4px);
+}
